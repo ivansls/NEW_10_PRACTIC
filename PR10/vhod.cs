@@ -78,7 +78,7 @@ public class vhod
         admin ad = new admin();
         if (Convert.ToInt32(rolee) == (int)MyEnum.admin)
         {
-            ad.Admin(type, key);
+            ad.Admin(type);
         }
     }
 

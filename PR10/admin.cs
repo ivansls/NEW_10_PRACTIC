@@ -14,7 +14,8 @@ public class admin
     vhod tst = new vhod();
     private start st = new start();
     int pos = 1;
-    public void Admin(List<MyType> type, ConsoleKeyInfo key)
+
+    public void Admin(List<MyType> type)
     {
         Console.Clear();
         foreach (var i in type)
@@ -27,28 +28,27 @@ public class admin
             Console.WriteLine("Логин");
             Console.SetCursorPosition(70, 0);
             Console.WriteLine("Пароль");
-            
+
             Console.SetCursorPosition(2, pos);
-            Console.WriteLine(i.ID);
+            Console.Write(i.ID);
             Console.SetCursorPosition(5, pos);
-            Console.WriteLine(i.Role);
+            Console.Write(i.Role);
             Console.SetCursorPosition(40, pos);
-            Console.WriteLine(i.Login);
+            Console.Write(i.Login);
             Console.SetCursorPosition(70, pos);
-            Console.WriteLine(i.Password);
+            Console.Write(i.Password);
             pos++;
         }
-
-
-        if (key.Key == ConsoleKey.R)
-        {
-            Write(tst, key);
-        }
-        
+            ConsoleKeyInfo key = Console.ReadKey();
+            if (key.Key == ConsoleKey.R)
+            {
+                Write(tst, key);
+            }
     }
 
-    
-    public void Write(vhod tst, ConsoleKeyInfo key)
+
+
+public void Write(vhod tst, ConsoleKeyInfo key)
     {
         Console.Clear();
         
@@ -64,10 +64,10 @@ public class admin
         Console.WriteLine("RollID");
         pers.RoleID = Console.ReadLine();
         tst.type.Add(pers);
-        
         Des_or_Ser.MySerialeze(tst.type);
+        Admin(tst.type);
         //string Login = Console.ReadLine();
-        tst.open(key);
+        //tst.open(key);
         
     }
 }

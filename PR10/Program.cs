@@ -15,7 +15,7 @@ void shov()
 }
 
 
-
+shov();
 
 while (islistenning)
 {
